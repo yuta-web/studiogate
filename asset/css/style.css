@@ -757,7 +757,7 @@ p-voice
 	background-size: 21.95vw 22.4vw;
 	width: 21.95vw;
 	height: 22.4vw;
-	right: -8vw;
+	right: 0;
 	top: -10.9vw;
 }
 
@@ -855,6 +855,13 @@ p-voice
 	.p-contact textarea {
 		height: 32.38vw;
 	}
+}
+
+.p-contact .p-contact__submit {
+	width: 30%;
+	display: block;
+	margin: 18px auto 0;
+	cursor: pointer;
 }
 
 .p-contact__liver {
