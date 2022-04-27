@@ -437,6 +437,7 @@ p-about
 
 .p-about__img-01 img {
 	box-shadow: 21px 23px #F9C83B;
+	object-fit: cover;
 }
 @media screen and (max-width:768px) {
 	.p-about__img-01 img {
@@ -446,6 +447,7 @@ p-about
 
 .p-about__img-02 img {
 	box-shadow: -20px 20px #FFF835;
+	object-fit: cover;
 }
 @media screen and (max-width:768px) {
 	.p-about__img-02 img {
