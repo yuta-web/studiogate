@@ -293,6 +293,32 @@ p-kv
 	}
 }
 
+section.slider__area {
+	width: calc(50% - 42px);
+	height: 100vh; 
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+}
+
+section.slider__area .slider {
+	width: 50%;
+	margin-right: 20px;
+	height: 100vh;
+}
+
+section.slider__area .slider img{
+	width: 100%;
+	margin-bottom: 20px;
+	/* height: 150px; */
+	object-fit: cover;
+}
+
+/* .slider img {
+	width: 
+} */
+
 /* ------
 p-about
 ------*/
@@ -606,7 +632,7 @@ p-service
 	width: 100%;
 	max-width: 340px;
 	opacity: 0;
-	transition: 3s;
+	transition: 2s;
 }
 .p-service__box.active_here {
 	opacity: 1;
@@ -614,14 +640,14 @@ p-service
 .p-service__box.active {
 	opacity: 0;
 	animation-name: leftFadeAnime;
-	animation-duration: 3s;
+	animation-duration: 2.5s;
 	animation-fill-mode: forwards;
 }
 .p-service__box.active:nth-of-type(2) {
-	animation-delay: 1s;
+	animation-delay: 0.5s;
 }
 .p-service__box.active:nth-of-type(3) {
-	animation-delay: 2s;
+	animation-delay: 1s;
 }
 @keyframes leftFadeAnime {
 	0% {
@@ -739,7 +765,8 @@ p-voice
 	opacity: 0;
 	transition: 3s;
 }
-.p-voice__area.active {
+.p-voice__area.active,
+.p-voice__area.active_here {
 	opacity: 1;
 }
 @media screen and (max-width:1000px) {
@@ -1421,7 +1448,6 @@ header.u-sp nav {
 }
 
 header.u-sp nav ul {
-	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
