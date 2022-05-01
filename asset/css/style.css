@@ -1,5 +1,6 @@
 html {
 	font-size: 62.5%;
+	overflow-x: hidden;
 }
 
 body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p, div, span, img, a, table, tr, th, td {
@@ -333,7 +334,6 @@ p-about
 	animation-name: fadeIn;
 	animation-fill-mode: forwards;
 	animation-duration: 2s;
-	animation-delay: 0s;
 	animation-timing-function: ease-out;
 }
 @keyframes fadeIn {
@@ -1175,16 +1175,43 @@ c-card
 	background: #fff;
 	text-align: center;
 	opacity: 0;
-	transition: all 1.5s;
+	transition: all 1s;
+	overflow: hidden;
 }
-.c-card__4col.active {
-	opacity: 1; 
+
+@media screen and (min-width:768px) {
+	.c-card__4col.active {
+		opacity: 0;
+		animation-name: fade; 
+		animation-duration: 1.5s;
+		animation-fill-mode: forwards;
+	}
+	@keyframes fade {
+		0% {
+			opacity: 0;
+		} 100% {
+			opacity: 1;
+		}
+	}
 }
+
 @media screen and (max-width:768px) {
 	.c-card__4col {
 		padding: 3.54vw 4.46vw 3.2vw;
 		margin-right: 0;
 		width: 100%;
+	}
+	.c-card__4col:nth-of-type(2n-1) {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	.c-card__4col:nth-of-type(2n) {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	.c-card__4col.active {
+		transform: translateX(0);
+		opacity: 1;
 	}
 }
 
@@ -1394,7 +1421,7 @@ header.u-sp nav {
 }
 
 header.u-sp nav ul {
-	width: 100%;
+	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

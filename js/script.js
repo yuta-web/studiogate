@@ -44,6 +44,54 @@
   });
 }
 
+// livers
+{
+  const livers = document.getElementById('characters');
+  const characters = Array.from(livers.children);
+
+  function randomIn() {
+    let value = 0;
+    while(characters.length > 0) {
+      let randomNum = Math.floor(Math.random() * characters.length);
+      characters[randomNum].classList.add('active');
+      characters[randomNum].style.animationDelay = value + "s";
+      value += 0.3;
+      characters.splice(randomNum, 1);
+    }
+  }
+
+  let wh = window.innerHeight / 1.5;
+  console.log(wh);
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth < 768) {
+      characters.forEach(character => {
+        let charaTop = character.getBoundingClientRect().top;
+        console.log(charaTop);
+        if (wh >= charaTop) {
+          // if (window.innerWidth < 768) {
+            character.classList.add('active');
+          // }
+        }
+      });
+    } else {
+      let liversTop = livers.getBoundingClientRect().top;
+      let winHeight = window.innerHeight / 3;
+      if (winHeight > liversTop) {
+        randomIn();
+      }
+    }
+  })
+
+  // window.addEventListener('scroll', () => {
+  //   let winHeight = window.innerHeight / 3;
+  //   if (winHeight > liversTop) {
+  //     if (window.innerWidth > 768) {
+  //       randomIn();
+  //     }
+  //   }
+  // });
+}
+
 // about
 {
   function fadeIn() {
@@ -99,12 +147,3 @@
     })
   }); 
 }
-
-// contact
-// {
-//   const blinkingImg =  document.querySelector('.p-contact__btn__area > img');
-
-//   window.addEventListener('load', () => {
-    
-//   });
-// }
