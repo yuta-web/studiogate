@@ -242,7 +242,7 @@ p-kv
 
 @media screen and (min-width:768px) {
 	.p-kv {
-		height: 65vw;
+		height: 62vw;
 	}
 	.center > img {
 		position: absolute;
@@ -292,11 +292,9 @@ p-kv
 
 	.slider1 {
 		left: -1px;
-		top: 7.7vw;
 	}
 
 	.slider2 {
-		bottom: 0;
 		left: 76.8vw;
 		transform: rotate(180deg);
 	}
