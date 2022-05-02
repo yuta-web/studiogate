@@ -19,7 +19,6 @@ function fadeAnime(targets) {
 
 function randomIn() {
   let targetHeight = livers.getBoundingClientRect().top * 2;
-  // let winHeight = window.innerHeight / 3;
   if (windowHeight > targetHeight) {
     let value = 0;
     while(characters.length > 0) {
@@ -37,7 +36,6 @@ function slideIn() {
     let targetHeight = target.getBoundingClientRect().top * 2;
     if (windowHeight >= targetHeight) {
         target.classList.add('active');
-      // }
     }
   });
 }
