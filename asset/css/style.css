@@ -278,7 +278,7 @@ p-kv
 
 .slider {
 	display: flex;
-	overflow-x: scroll;
+	overflow-x: hidden;
 }
 
 .slider div {
