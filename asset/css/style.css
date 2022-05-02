@@ -293,31 +293,28 @@ p-kv
 	}
 }
 
-section.slider__area {
-	width: calc(50% - 42px);
-	height: 100vh; 
+.slider {
+	display: flex;
+	overflow-x: hidden;
 	position: absolute;
 	top: 0;
-	right: 0;
-	display: flex;
+	/* flex-wrap: wrap; */
+	z-index: 100;
 }
 
-section.slider__area .slider {
-	width: 50%;
-	margin-right: 20px;
-	height: 100vh;
+.slider div {
+	width: 50vw;
+	height: 50vw;
+	margin-right: 10px;
 }
 
-section.slider__area .slider img{
+.slider div img {
+	display: block;
+	padding: 0;
 	width: 100%;
-	margin-bottom: 20px;
-	/* height: 150px; */
-	object-fit: cover;
+	/* width: 40vw; */
+	object-fit: fill;
 }
-
-/* .slider img {
-	width: 
-} */
 
 /* ------
 p-about
