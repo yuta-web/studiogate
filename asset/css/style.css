@@ -208,14 +208,14 @@ p-kv
 	width: 100%;
 }
 
-.p-kv img {
+/* .p-kv img {
 	margin: 81px 0 0;
-}
-@media screen and (max-width:768px) {
+} */
+/* @media screen and (max-width:768px) {
 	.p-kv img {
 		padding: 40vw 0;
 	}
-}
+} */
 
 .p-kv__text {
 	position: absolute;
@@ -278,25 +278,24 @@ p-kv
 
 .slider {
 	display: flex;
-	overflow-x: hidden;
-	position: absolute;
-	top: 0;
-	/* flex-wrap: wrap; */
-	z-index: 100;
+	overflow-x: scroll;
 }
 
 .slider div {
-	width: 50vw;
-	height: 50vw;
+	width: 750px;
+	/* height: 50vw; */
 	margin-right: 10px;
 }
 
-.slider div img {
+.slider div > img {
+	width: 750px;
+	/* height: 500px; */
+	/* width: 50vw; */
 	display: block;
+	margin: 0;
 	padding: 0;
-	width: 100%;
-	/* width: 40vw; */
-	object-fit: fill;
+	object-fit: contain;
+	/* position: absolute; */
 }
 
 /* ------
