@@ -31,9 +31,9 @@
         slidesToShow: 2, // 表示するスライドの数
         swipe: false, // 操作による切り替えはさせない
         arrows:  true, // 矢印非表示
+        pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
         rtl: true,
         vertical: true,
-        pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
         pauseOnHover: false, // スライダーにマウスホバーした時にスライドを停止させるか
         responsive: [
           {
