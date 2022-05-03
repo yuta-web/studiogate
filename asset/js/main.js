@@ -137,7 +137,6 @@
   const about = document.querySelectorAll('.p-about__detail');
   const services = document.querySelectorAll('.p-service__box');
   const voices = document.querySelectorAll('.p-voice__area');
-  // const livers = document.getElementById('characters');
 
   window.addEventListener('scroll', () => {
     fadeAnime(about);

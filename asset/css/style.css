@@ -321,7 +321,7 @@ p-kv
 	}
 
 	.slider img {
-		margin: 0 0 0 10px;
+		padding: 0 0 0 7px;
 		width: 100%;
 	}
 
@@ -418,18 +418,18 @@ p-about
 .p-about__detail {
 	transform: translateX(100vw);
 	opacity: 0;
-	transition: all, 2s;
+	transition: all, 1s;
 }
 
 @media screen and (max-width:768px) {
 	.p-about__detail {
 		transform: translateX(0);
 		opacity: 0;
-		transition: all, 2s;
+		transition: all, 0,5s;
 	}
 	.p-about__detail.active_here {
 		opacity: 1;
-		transition: all, 3s;
+		transition: all, 1s;
 	}
 }
 
@@ -437,7 +437,7 @@ p-about
 	transform: translateX(0);
 	animation-name: fadeIn;
 	animation-fill-mode: forwards;
-	animation-duration: 2s;
+	animation-duration: 1s;
 	animation-timing-function: ease-out;
 }
 @keyframes fadeIn {
@@ -453,18 +453,18 @@ p-about
 .p-about__detail.reverse {
 	transform: translateX(-100vw);
 	opacity: 0;
-	transition: all, 2s;
+	transition: all, 1s;
 }
 
 @media screen and (max-width:768px) {
 	.p-about__detail.reverse {
 		transform: translateX(0);
 		opacity: 0;
-		transition: all, 2s;
+		transition: all, 1s;
 	}
 	.p-about__detail.reverse.active_here {
 		opacity: 1;
-		transition: all, 3s;
+		transition: all, 1s;
 	}
 }
 
@@ -652,7 +652,7 @@ p-service
 	width: 100%;
 	max-width: 340px;
 	opacity: 0;
-	transition: 2s;
+	transition: 0.75s;
 }
 .p-service__box.active_here {
 	opacity: 1;
@@ -660,14 +660,14 @@ p-service
 .p-service__box.active {
 	opacity: 0;
 	animation-name: leftFadeAnime;
-	animation-duration: 2.5s;
+	animation-duration: 1.5s;
 	animation-fill-mode: forwards;
 }
 .p-service__box.active:nth-of-type(2) {
-	animation-delay: 0.5s;
+	animation-delay: 0.25s;
 }
 .p-service__box.active:nth-of-type(3) {
-	animation-delay: 1s;
+	animation-delay: 0.5s;
 }
 @keyframes leftFadeAnime {
 	0% {
@@ -783,7 +783,7 @@ p-voice
 	margin: 32px auto 0;
 	max-width: 1588px;
 	opacity: 0;
-	transition: 3s;
+	transition: 1.5s;
 }
 .p-voice__area.active,
 .p-voice__area.active_here {
@@ -943,7 +943,7 @@ p-voice
 }
 
 /* ------
-p-voice
+p-contact
 ------*/
 
 .p-contact {
@@ -1029,11 +1029,33 @@ p-voice
 	}
 }
 
-.p-contact .p-contact__submit {
-	width: 30%;
-	display: block;
-	margin: 18px auto 0;
+.p-contact__submit__wrap {
+	display: flex;
+	justify-content: center;
+	margin: 10px auto 0;
+}
+
+.p-contact__submit {
+	padding: 4px 0 5px;
+	width: 122px !important;
+	border: none;
+	border-radius: 21px;
+	font-size: 2rem;
+	font-weight: bold;
+	letter-spacing: 0.2em;
+	color: #fff;
+	background-color: #05C755;
 	cursor: pointer;
+}
+@media screen and (max-width:768px) {
+	.p-contact__submit {
+		width: 104px !important;
+		font-size: 2rem;
+	}
+}
+
+.p-contact__submit:hover {
+	opacity: .5;
 }
 
 .p-contact__liver {
@@ -1075,14 +1097,14 @@ p-voice
 }
 
 .p-contact__btn__area {
-	margin: 68px 0 0 auto;
+	margin: 48px 0 0 auto;
 	display: flex;
 	align-items: center;
 	width: 248px;
 }
 @media screen and (max-width:768px) {
 	.p-contact__btn__area {
-		margin: 78px auto 0;
+		margin: 28px auto 0;
 		flex-direction: column;
 		align-items: center;
 		width: 248px;
@@ -1101,14 +1123,14 @@ p-voice
 		opactiy: 0;
 	} 75% {
 		opacity: .6;
-	}100% {
+	} 100% {
 		opacity: 1;
 	}
 }
 
 .p-contact__arrow {
-	width: 58px;
-	height: 47px;
+	width: 78px;
+	height: 67px;
 }
 @media screen and (max-width:768px) {
 	.p-contact__arrow {

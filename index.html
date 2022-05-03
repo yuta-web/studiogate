@@ -302,17 +302,19 @@
 					<h3 class="p-contact__client__ttl">For Client</h3>
 					<p class="c-text">企業様のお問い合わせはこちらへ</p>
 					<form action="confirm.php" method="post" class="c-text">
-						<label for="yourname">①名前</label>
+						<label for="yourname">名前</label>
 						<input id="yourname" type="text" name="yourname">
-						<label for="companyname">②会社名</label>
+						<label for="companyname">会社名</label>
 						<input id="companyname" type="text" name="companyname">
-						<label for="mail">③返信用メールアドレス</label>
+						<label for="mail">返信用メールアドレス</label>
 						<input id="mail" type="email" name="mail">
-						<label for="num">④電話番号</label>
+						<label for="num">電話番号</label>
 						<input id="num" type="number" name="num">
-						<label for="comment">⑤問い合わせ内容</label>
+						<label for="comment">問い合わせ内容</label>
 						<textarea id="comment" name="comment"></textarea>
-						<input type="submit" value="送信する" class="p-contact__submit">
+						<div class="p-contact__submit__wrap">
+							<input type="submit" value="送信" class="p-contact__submit">
+						</div>
 					</form>
 				</section>
 				<section class="p-contact__liver">
