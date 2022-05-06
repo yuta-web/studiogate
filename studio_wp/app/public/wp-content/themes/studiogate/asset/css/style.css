@@ -67,7 +67,6 @@ layout
 }
 @media screen and (max-width:768px) {
 	.l-content {
-		max-width: 2000px;
 		margin: 0 auto 4.4vw;
 	}
 }
@@ -102,7 +101,7 @@ layout
 }
 @media screen and (max-width:768px) {
 	#livers.l-content__section {
-		margin: 10.74vw 0 0;
+		margin: 0;
 	}
 }
 
@@ -308,6 +307,8 @@ p-kv
 	.slider img {
 		margin: 10px 0 0;
 		width: 100%;
+		height: 24vw;
+		object-fit: cover;
 	}
 
 	.slider2 img{
@@ -318,12 +319,13 @@ p-kv
 @media screen and (max-width:768px) {
 	.slider div {
 		padding: 0;
-		object-fit: contain;
 	}
 
 	.slider img {
 		padding: 0 0 0 7px;
 		width: 100%;
+		height: 32.9vw;
+		object-fit: cover;
 	}
 
 	.center {
@@ -332,6 +334,7 @@ p-kv
 	}
 
 	.slider2 {
+		position: relative;
 		top: -20px;
 		z-index: -2;
 	}
@@ -451,25 +454,25 @@ p-about
 	}
 }
 
-.p-about__detail.reverse {
+.p-about__detail:nth-of-type(even) {
 	transform: translateX(-100vw);
 	opacity: 0;
 	transition: all, 1s;
 }
 
 @media screen and (max-width:768px) {
-	.p-about__detail.reverse {
+	.p-about__detail:nth-of-type(even) {
 		transform: translateX(0);
 		opacity: 0;
 		transition: all, 1s;
 	}
-	.p-about__detail.reverse.active_here {
+	.p-about__detail:nth-of-type(even).active_here {
 		opacity: 1;
 		transition: all, 1s;
 	}
 }
 
-.p-about__detail.reverse.active {
+.p-about__detail:nth-of-type(even).active {
 	transform: translateX(0);
 }
 
@@ -561,61 +564,61 @@ p-about
 	width: 100%;
 }
 
-.p-about__detail.reverse {
+.p-about__detail:nth-of-type(even) {
 	display: flex;
 	flex-direction: row-reverse;
 }
 @media screen and (max-width:768px) {
-	.p-about__detail.reverse {
+	.p-about__detail:nth-of-type(even) {
 		flex-direction: column-reverse;
 	}
 }
 
-.p-about__detail.reverse .p-about__textarea{
+.p-about__detail:nth-of-type(even) .p-about__textarea{
 	margin: 18px 0 18px 20px;
 }
 @media screen and (max-width:1000px) {
-	.p-about__detail.reverse .p-about__textarea{
+	.p-about__detail:nth-of-type(even) .p-about__textarea{
 		margin: 1.8vw 0 1.8vw 2vw;
 	}
 }
 @media screen and (max-width:768px) {
-	.p-about__detail.reverse .p-about__textarea {
+	.p-about__detail:nth-of-type(even) .p-about__textarea {
 		padding: 2.77vw 3.28vw 4.31vw 5.81vw;
 		margin: 5.45vw 0 0;
 	}
 }
 
-.p-about__detail.reverse .p-about__img{
+.p-about__detail:nth-of-type(even) .p-about__img{
 	margin: 0 0 0 20px;
 }
 @media screen and (max-width:1000px) {
-	.p-about__detail.reverse .p-about__img{
+	.p-about__detail:nth-of-type(even) .p-about__img{
 		margin: 0 0 0 2vw;
 	}
 }
 @media screen and (max-width:768px) {
-	.p-about__detail.reverse .p-about__img{
+	.p-about__detail:nth-of-type(even) .p-about__img{
 		margin: 0 13.73vw;
 	}
 }
 
-.p-about__img-01 img {
+.p-about__detail:nth-of-type(odd) .p-about__img img {
 	box-shadow: 21px 23px #F9C83B;
 	object-fit: cover;
 }
 @media screen and (max-width:768px) {
-	.p-about__img-01 img {
+	.p-about__detail:nth-of-type(odd) .p-about__img img {
 		box-shadow: 3.69vw 3.1vw #F9C83B;
 	}
 }
 
-.p-about__img-02 img {
+.p-about__detail:nth-of-type(even) .p-about__img img {
 	box-shadow: -20px 20px #FFF835;
 	object-fit: cover;
 }
 @media screen and (max-width:768px) {
-	.p-about__img-02 img {
+	.p-about__detail:nth-of-type(even) .p-about__img img {
 		box-shadow: -3.67vw 3.64vw #FFF835;
 	}
 }
@@ -1030,13 +1033,35 @@ p-contact
 	}
 }
 
+.wpcf7-not-valid-tip,
+.screen-reader-response p {
+	font-size: 1.4rem;
+}
+
+.wpcf7-not-valid-tip {
+	color: red;
+}
+
+#wpcf7-f80-o1-ve-your-name,
+#wpcf7-f80-o1-ve-your-company,
+#wpcf7-f80-o1-ve-your-email,
+#wpcf7-f80-o1-ve-your-tel,
+#wpcf7-f80-o1-ve-your-message,
+.wpcf7-response-output {
+	display: none !important;
+}
+
+.sent {
+	display: none;
+}
+
 .p-contact__submit__wrap {
 	display: flex;
 	justify-content: center;
 	margin: 10px auto 0;
 }
 
-.p-contact__submit {
+.p-contact__submit__wrap input {
 	padding: 4px 0 5px;
 	width: 122px !important;
 	border: none;
@@ -1049,13 +1074,13 @@ p-contact
 	cursor: pointer;
 }
 @media screen and (max-width:768px) {
-	.p-contact__submit {
+	.p-contact__submit__wrap input{
 		width: 104px !important;
 		font-size: 2rem;
 	}
 }
 
-.p-contact__submit:hover {
+.p-contact__submit__wrap input:hover {
 	opacity: .5;
 }
 
@@ -1350,6 +1375,11 @@ c-card
 .c-card__name {
 	font-size: 3rem;
 	font-weight: bold;
+}
+@media screen and (max-width:1400px) {
+	.c-card__name {
+		font-size: 2.18vw;
+	}
 }
 @media screen and (max-width:1000px) {
 	.c-card__name {

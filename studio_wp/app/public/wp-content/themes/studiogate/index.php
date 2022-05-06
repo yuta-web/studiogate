@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="スタジオゲートは配信を始める前から徹底したサポートによって不安なくライバーが配信を始められる環境を作っています。">
-  <meta property="og:image" content="https://studio-gate.tokyo/<?php echo get_template_directory_uri() ?>/asset/img/ogp.jpg">
+  <meta property="og:image" content="<?php echo get_template_directory_uri() ?>/asset/img/ogp.jpg">
 	<link rel="icon" href="<?php echo get_template_directory_uri() ?>/asset/img/ogp.jpg">
   <meta property="og:title" content="ライブ配信ならスタジオゲート">
   <meta property="og:site_name" content="スタジオゲート - 公式ホームページ">
@@ -28,7 +28,6 @@
   />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/asset/css/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<?php wp_head(); ?>
 </head>
 <body>
 	<header class="l-header u-pc">
@@ -70,18 +69,19 @@
 	<main class="l-content">
 		<div class="p-kv">
 			<div class="slider slider1">
-			<?php
-				$cfs_slick_grp = CFS()->get('kv_group');
-				if( !empty( $cfs_slick_grp ) ) {
-					foreach( $cfs_slick_grp as $cfs_slick ) {
-						$cfs_slick_img_id = $cfs_slick['kv_img'];
-						$cfs_slick_img_url = wp_get_attachment_url( $cfs_slick_img_id );
-						$cfs_slick_img_alt = get_post_meta( $cfs_slick_img_id, '_wp_attachment_image_alt', true );
-						$output_cfs_slick .= '<div><img src="'.$cfs_slick_img_url.'" alt="'.$cfs_slick_img_alt.'"><div>';
-					}
-				}
-			?>
-			<?php echo $output_cfs_slick; ?>
+				<?php
+					$args = array(
+						'post_type' => 'kv_left'
+					);
+					$the_query = new WP_Query($args);
+					if($the_query->have_posts()):
+				?>
+				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+				<div><img src="<?php echo CFS()->get('kv_left_img') ?>" alt="<?php the_title(); ?>" /></div>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+				<?php else: ?>
+				<?php endif; ?>
 			</div>
 			<div class="center">
 				<img src="<?php echo get_template_directory_uri() ?>/asset/img/kv_pc.png" width="2000" height="1160" alt="業界サポートNo. 1 ライブ配信するなら スタジオゲート 映像、舞台、広告、CM案件ももらえる！" class="u-pc">
@@ -94,56 +94,42 @@
 				</p>
 			</div>
 			<div class="slider slider2" dir="rtl">
-				<div><img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_01.png" alt="" /></div>
-				<div><img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_02.png" alt="" /></div>
-				<div><img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_03.png" alt="" /></div>
-				<div><img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_04.png" alt="" /></div>
+			<?php
+					$args = array(
+						'post_type' => 'kv_right'
+					);
+					$the_query = new WP_Query($args);
+					if($the_query->have_posts()):
+				?>
+				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+				<div><img src="<?php echo CFS()->get('kv_right_img') ?>" alt="<?php the_title(); ?>" /></div>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+				<?php else: ?>
+				<?php endif; ?>
 			</div>
 		</div>
 
 		<section id="livers" class="l-content__section">
 			<h2 class="c-heading">Livers</h2>
 			<div class="l-content__bg--black" id="characters">
+				<?php
+					$args = array(
+						'post_type' => 'livers'
+					);
+					$the_query = new WP_Query($args);
+					if($the_query->have_posts()):
+				?>
+				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
 				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_01.png" width="369" height="347" alt="NMB48　肥川彩愛">
-					<p class="c-card__category">タレント</p>
-					<p class="c-card__name">NMB48　肥川彩愛</p>
+					<img src="<?php echo CFS()->get('livers_image') ?>" alt="<?php the_title(); ?>">
+					<p class="c-card__category"><?php echo CFS()->get('livers_work') ?></p>
+					<p class="c-card__name"><?php echo CFS()->get('livers_name') ?></p>
 				</div>
-				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_02.png" width="370" height="347" alt="こっぺ">
-					<p class="c-card__category">ライバー</p>
-					<p class="c-card__name">こっぺ</p>
-				</div>
-				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_03.png" width="383" height="345" alt="ゆうこりん">
-					<p class="c-card__category">ライバー</p>
-					<p class="c-card__name">ゆうこりん</p>
-				</div>
-				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_04.png" width="369" height="345" alt="やぐちみき">
-					<p class="c-card__category">タレント</p>
-					<p class="c-card__name">やぐちみき</p>
-				</div>
-				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_05.png" width="370" height="350" alt="水野愛日">
-					<p class="c-card__category">声優</p>
-					<p class="c-card__name">水野愛日</p>
-				</div>
-				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_06.png" width="375" height="349" alt="なおち">
-					<p class="c-card__category">ライバー</p>
-					<p class="c-card__name">なおち</p>
-				</div>
-				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_07.png" width="371" height="349" alt="山口さやか">
-					<p class="c-card__category">歌手</p>
-					<p class="c-card__name">山口さやか</p>
-				</div>
-				<div class="c-card__4col">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/livers_08.png" width="371" height="348" alt="あーみん">
-					<p class="c-card__category">女子プロレスラー</p>
-					<p class="c-card__name">あーみん</p>
-				</div>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+				<?php else: ?>
+				<?php endif; ?>
 			</div>
 		</section>
 
@@ -152,33 +138,29 @@
 			<div class="p-about__area__wrap">
 				<div class="p-about__area">
 					<div class="p-about__area__inner">
+					<?php
+					$args = array(
+						'post_type' => 'about'
+					);
+					$the_query = new WP_Query($args);
+					if($the_query->have_posts()):
+				?>
+				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
 						<section class="p-about__detail">
 							<div class="p-about__textarea">
 								<div>
-									<h3 class="p-about__ttl">About us</h3>
-									<p class="p-about__txt">私たちはライブ配信の芸能事務所です。<br>
-										イチナナやBIGO LIVEなどで活躍できるライバーを育てるだけでなく、<br>
-										ライブコマースや映像、CM、舞台でも活躍できる人材の育成を行っております。</p>
+									<h3 class="p-about__ttl"><?php echo CFS()->get('about_title') ?></h3>
+									<p class="p-about__txt"><?php echo CFS()->get('about_text') ?></p>
 								</div>
 							</div>
-							<div class="p-about__img p-about__img-01">
-								<img src="<?php echo get_template_directory_uri() ?>/asset/img/img_01.png" width="552" height="743" alt="About us">
+							<div class="p-about__img">
+								<img src="<?php echo CFS()->get('about_img') ?>" alt="<?php the_title(); ?>">
 							</div>
 						</section>
-						<section class="p-about__detail reverse">
-							<div class="p-about__textarea">
-								<div>
-									<h3 class="p-about__ttl">ライバーサポートNo. 1へ</h3>
-									<p class="p-about__txt">
-										私たちはライバーのサポート力業界No. 1を目指しています。<br>
-										ライブ配信の事務所に入ったけどサポートが全くなかったというのはよく聞く話です。<br>
-										スタジオゲートは配信を始める前から徹底したサポートによって不安なくライバー配信が始められる環境を作っています。</p>
-								</div>
-							</div>
-							<div class="p-about__img p-about__img-02">
-								<img src="<?php echo get_template_directory_uri() ?>/asset/img/img_02.png" width="558" height="752" alt="ライバーサポートNo.1へ">
-							</div>
-						</section>
+						<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+				<?php else: ?>
+				<?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -248,7 +230,6 @@
 							相談サポート付きです。</p>
 					</section>
 				</div>
-
 				<div class="p-service__box">
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
@@ -285,23 +266,32 @@
 			<h2 class="c-heading">Voice</h2>
 			<div class="p-voice__cnt">
 				<div class="p-voice__wrap">
+					<?php
+						$args = array(
+							'post_type' => 'voice'
+						);
+						$the_query = new WP_Query($args);
+						if($the_query->have_posts()):
+					?>
+					<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
 					<div class="p-voice__area">
 						<div class="p-voice__img__wrap">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/img_04.png" width="563" height="751" alt="所属ライバー　肥川彩愛" class="p-voice__img">
+							<img src="<?php echo CFS()->get('voice_img') ?>" alt="<?php the_title(); ?>" class="p-voice__img">
 						</div>
 						<div class="p-voice__detail">
 							<div>
-								<p class="p-voice__name">所属ライバー　肥川彩愛</p>
-								<p class="p-voice__ttl">スタジオゲートでよかった！</p>
-								<p class="p-voice__txt">最初は配信が不安で何を話せば良いかわからなかったのですが、<br>
-									最初は一緒に配信をしてくれるので全然困りませんでした !<br>
-									ファン同士を紹介してくれるのですぐにファンがつきました !</p>
+								<p class="p-voice__name"><?php echo CFS()->get('voice_name') ?></p>
+								<p class="p-voice__ttl"><?php echo CFS()->get('voice_title') ?></p>
+								<p class="p-voice__txt"><?php echo CFS()->get('voice_text') ?></p>
 							</div>
 						</div>
 					</div>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+					<?php else: ?>
+					<?php endif; ?>
 				</div>
 			</div>
-
 		</section>
 
 		<section id="contact" class="l-content__section">
@@ -310,21 +300,9 @@
 				<section class="p-contact__client">
 					<h3 class="p-contact__client__ttl">For Client</h3>
 					<p class="c-text">企業様のお問い合わせはこちらへ</p>
-					<form action="confirm.php" method="post" class="c-text">
-						<label for="yourname">名前</label>
-						<input id="yourname" type="text" name="yourname">
-						<label for="companyname">会社名</label>
-						<input id="companyname" type="text" name="companyname">
-						<label for="mail">返信用メールアドレス</label>
-						<input id="mail" type="email" name="mail">
-						<label for="num">電話番号</label>
-						<input id="num" type="number" name="num">
-						<label for="comment">問い合わせ内容</label>
-						<textarea id="comment" name="comment"></textarea>
-						<div class="p-contact__submit__wrap">
-							<input type="submit" value="送信" class="p-contact__submit">
-						</div>
-					</form>
+					<div class="c-text">
+						<?php echo do_shortcode('[contact-form-7 id="80" title="Contact form 1"]')?>
+					</div>
 				</section>
 				<section class="p-contact__liver">
 					<h3 class="p-contact__liver__ttl">For Liver</h3>
@@ -346,26 +324,31 @@
 					<img src="<?php echo get_template_directory_uri() ?>/asset/img/logo_01.png" width="399" height="44" alt="STUDIO GATE" class="p-company__logo">
 					<p class="p-company__ttl">会社概要</p>
 					<p class="c-text">合同会社スタジオゲート</p>
-					<p class="c-text">連絡先：info@studio-gate.tokyo<br>
-						本社：東京都渋谷区神宮前六丁目２３番４号<br>
-						事業内容:タレント、モデル、アーティストのマネージメント<br>
-						ファンコミュニティ事業<br>
-						インターネットによる広告業務及び番組配信前各号に附帯関連する⼀切の事業</p>
+					<?php
+						$args = array(
+							'post_type' => 'company',
+						);
+						$the_query = new WP_Query($args);
+						if($the_query->have_posts()):
+					?>
+					<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+					<p class="c-text"><?php echo CFS()->get('company_text') ?></p>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+					<?php else: ?>
+					<?php endif; ?>
 				</div>
 				<div class="p-company__map">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.487767883481!2d139.70025811480286!3d35.664989938470804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca60a68b265%3A0xe7d14091d18be5a3!2z44CSMTUwLTAwMDEg5p2x5Lqs6YO95riL6LC35Yy656We5a6u5YmN77yW5LiB55uu77yS77yT4oiS77yU!5e0!3m2!1sja!2sjp!4v1650536996627!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
 			</div>
-		</section> -->
+		</section>
 	</main>
 	<footer class="l-footer">
-		<p>ll rights reserved  by studio gate</p>
+		<p>All rights reserved  by studio gate</p>
 	</footer>
-	<script
-	type="text/javascript"
-	src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-	>
-	</script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/asset/js/smoothscroll.js"></script>
 	<script src="<?php echo get_template_directory_uri() ?>/asset/js/functions.js"></script>
 	<script src="<?php echo get_template_directory_uri() ?>/asset/js/main.js"></script>
 </body>

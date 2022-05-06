@@ -8,7 +8,7 @@
         autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
         speed: 5000, // スライドが流れる速度を設定
         cssEase: "linear", // スライドの流れ方を等速に設定
-        slidesToShow: 2.7, // 表示するスライドの数
+        slidesToShow: 2.5, // 表示するスライドの数
         swipe: false, // 操作による切り替えはさせない
         arrows:  true, // 矢印非表示
         pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
@@ -28,7 +28,7 @@
         autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
         speed: 5000, // スライドが流れる速度を設定
         cssEase: "linear", // スライドの流れ方を等速に設定
-        slidesToShow: 2.7, // 表示するスライドの数
+        slidesToShow: 2.5, // 表示するスライドの数
         swipe: false, // 操作による切り替えはさせない
         arrows:  true, // 矢印非表示
         pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
@@ -51,7 +51,7 @@
         autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
         speed: 5000, // スライドが流れる速度を設定
         cssEase: "linear", // スライドの流れ方を等速に設定
-        slidesToShow: 2, // 表示するスライドの数
+        slidesToShow: 3, // 表示するスライドの数
         swipe: false, // 操作による切り替えはさせない
         arrows: true, // 矢印非表示
         pauseOnFocus: false, // スライダーをフォーカスした時にスライドを停止させるか
@@ -60,7 +60,7 @@
           {
             breakpoint: 750,
             settings: {
-              slidesToShow: 2, // 画面幅750px以下でスライド3枚表示
+              slidesToShow: 3, // 画面幅750px以下でスライド3枚表示
             }
           }
         ]
@@ -70,7 +70,7 @@
         autoplaySpeed: 0, // 自動再生のスライド切り替えまでの時間を設定
         speed: 5000, // スライドが流れる速度を設定
         cssEase: "linear", // スライドの流れ方を等速に設定
-        slidesToShow: 2, // 表示するスライドの数
+        slidesToShow: 3, // 表示するスライドの数
         swipe: false, // 操作による切り替えはさせない
         arrows: true, // 矢印非表示
         rtl: true,
@@ -80,7 +80,7 @@
           {
             breakpoint: 750,
             settings: {
-              slidesToShow: 2, // 画面幅750px以下でスライド3枚表示
+              slidesToShow: 3, // 画面幅750px以下でスライド3枚表示
             }
           }
         ]
@@ -148,4 +148,11 @@
       slideIn();
     }
   });
+}
+
+{
+  const submit = document.getElementById('js-submit')
+  submit.addEventListener('click', function(){
+    document.location.href = "/#contact";
+  }, false);
 }
