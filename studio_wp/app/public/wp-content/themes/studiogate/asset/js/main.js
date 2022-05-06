@@ -149,10 +149,3 @@
     }
   });
 }
-
-{
-  const submit = document.getElementById('js-submit')
-  submit.addEventListener('click', function(){
-    document.location.href = "/#contact";
-  }, false);
-}
