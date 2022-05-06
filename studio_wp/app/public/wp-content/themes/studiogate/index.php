@@ -206,28 +206,28 @@
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
 							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_04.png" width="157" height="157" alt="配信以外にCM案件も取れる!!" class="p-service__icon">
-							<h3 class="p-service__ttl">配信以外に<br>CM案件も取れる!!</h3>
+							<h3 class="p-service__ttl">充実したサポート</h3>
 						</div>
-						<p class="p-service__txt">映画やCM案件を持っている<br>
-							製作会社と業務提携!!超本格的な<br>
-							機材でCM出演もサポート!!</p>
+						<p class="p-service__txt">月に数回オンラインや対面で<br>
+						どうすればフォロワーが増えるか<br>
+						コンサルを行っています。</p>
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
 							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_05.png" width="157" height="157" alt="ライブ中もサポート" class="p-service__icon">
-							<h3 class="p-service__ttl">ライブ中もサポート</h3>
+							<h3 class="p-service__ttl">専属マネージャー付き</h3>
 						</div>
-						<p class="p-service__txt">ライブ中にもコメントやギフトで<br>
-							徹底的にサポート!<br>
-							トップライバーとのコラボも充実!</p>
+						<p class="p-service__txt">配信に専念できるように<br>
+							専属のマネージャーがつきます。</p>
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
 							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_06.png" width="157" height="157" alt="法律税務相談サポート" class="p-service__icon">
-							<h3 class="p-service__ttl">法律税務相談<br>サポート</h3>
+							<h3 class="p-service__ttl">スタジオ<br>無料貸し出し</h3>
 						</div>
-						<p class="p-service__txt">弊社顧問弁護士や税理士による<br>
-							相談サポート付きです。</p>
+						<p class="p-service__txt">スタジオも無料で貸し出します。<br>
+						実家に住んでる方もやりやすい !<br>
+						しかも場所は渋谷のど真ん中 !</p>
 					</section>
 				</div>
 				<div class="p-service__box">
@@ -309,7 +309,7 @@
 					<p class="c-text">ライバーのお仕事に興味がある人はこちらへ</p>
 					<div class="p-contact__btn__area">
 						<img src="<?php echo get_template_directory_uri() ?>/asset/img/arrow_01.png" width="497" height="301" alt="矢印" class="p-contact__arrow">
-						<a href="https://lin.ee/J2TDM7S" class="p-contact__liver__link">
+						<a href="https://lin.ee/J2TDM7S" target="_blank" class="p-contact__liver__link">
 							<img src="<?php echo get_template_directory_uri() ?>/asset/img/btn_01.png" width="320" height="455" alt="LINEで応募する" class="p-contact__btn">
 						</a>
 					</div>
@@ -347,8 +347,8 @@
 	<footer class="l-footer">
 		<p>All rights reserved  by studio gate</p>
 	</footer>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/asset/js/smoothscroll.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="<?php echo get_template_directory_uri() ?>/asset/js/smoothscroll.js"></script>
 	<script src="<?php echo get_template_directory_uri() ?>/asset/js/functions.js"></script>
 	<script src="<?php echo get_template_directory_uri() ?>/asset/js/main.js"></script>
 </body>
