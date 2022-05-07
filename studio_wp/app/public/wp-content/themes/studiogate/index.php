@@ -226,8 +226,7 @@
 							<h3 class="p-service__ttl">スタジオ<br>無料貸し出し</h3>
 						</div>
 						<p class="p-service__txt">スタジオも無料で貸し出します。<br>
-						実家に住んでる方もやりやすい !<br>
-						しかも場所は渋谷のど真ん中 !</p>
+						実家に住んでる方もやりやすい !<br>しかも場所は渋谷のど真ん中 !</p>
 					</section>
 				</div>
 				<div class="p-service__box">
@@ -347,9 +346,7 @@
 	<footer class="l-footer">
 		<p>All rights reserved  by studio gate</p>
 	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="<?php echo get_template_directory_uri() ?>/asset/js/smoothscroll.js"></script>
-	<script src="<?php echo get_template_directory_uri() ?>/asset/js/functions.js"></script>
-	<script src="<?php echo get_template_directory_uri() ?>/asset/js/main.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/asset/js/smoothscroll.js"></script>
 </body>
 </html>
