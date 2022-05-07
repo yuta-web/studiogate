@@ -26,8 +26,7 @@
 	type="text/css"
 	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
   />
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/asset/css/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<?php wp_head(); ?>
 </head>
 <body>
 	<header class="l-header u-pc">
@@ -346,7 +345,7 @@
 	<footer class="l-footer">
 		<p>All rights reserved  by studio gate</p>
 	</footer>
+	<?php wp_footer(); ?>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/asset/js/smoothscroll.js"></script>
 </body>
 </html>

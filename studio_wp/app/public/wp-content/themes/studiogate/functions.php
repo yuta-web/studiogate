@@ -80,12 +80,15 @@ function my_custom_menu_order($menu_order) {
 add_filter('custom_menu_order', 'my_custom_menu_order');
 add_filter('menu_order', 'my_custom_menu_order');
 
+function theme_name_files() {
+  wp_enqueue_script('jquery');
+}
+add_action( 'wp_enqueue_scripts', 'theme_name_files' );
 function add_theme_scripts(){
 	wp_enqueue_style("style",get_template_directory_uri()."/asset/css/style.css",array(),"1.0.0");
-  wp_enqueue_script( 'jquery','//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js',array('jquery'),'3.6.0',true);
 	wp_enqueue_script( 'js1', get_template_directory_uri()."/asset/js/smoothscroll.js",array(), '1.0.0',true);
   wp_enqueue_script( 'js2', get_template_directory_uri()."/asset/js/functions.js",array(), '1.0.0',true);
-  wp_enqueue_script( 'js3', get_template_directory_uri()."/asset/js/script.js",array(), '1.0.0',true);
+  wp_enqueue_script( 'js3', get_template_directory_uri()."/asset/js/main.js",array(), '1.0.0',true);
 }
 add_action("wp_enqueue_scripts","add_theme_scripts");
 ?>
