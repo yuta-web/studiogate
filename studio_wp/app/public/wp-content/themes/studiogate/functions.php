@@ -80,11 +80,6 @@ function my_custom_menu_order($menu_order) {
 add_filter('custom_menu_order', 'my_custom_menu_order');
 add_filter('menu_order', 'my_custom_menu_order');
 
-function add_my_scripts() {
-  wp_deregister_script( 'jquery');
-}
-add_action('wp_enqueue_scripts', 'add_my_scripts');
-
 function add_theme_scripts(){
 	wp_enqueue_style("style",get_template_directory_uri()."/asset/css/style.css",array(),"1.0.0");
   wp_enqueue_script( 'jquery','//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js',array('jquery'),'3.6.0',true);
