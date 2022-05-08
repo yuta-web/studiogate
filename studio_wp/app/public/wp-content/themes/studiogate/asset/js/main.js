@@ -124,7 +124,7 @@
       clickItems.forEach(function(item) {
         item.classList.toggle('active');
       });
-      const ham = Array.from(clickItems[0].children);
+      const ham = Array.from(clickItems[0].children);;
       ham.forEach(hamItem => {
         hamItem.classList.toggle('active');
       })
@@ -134,18 +134,55 @@
 
 // スクロールアニメーション
 {
-  const about = document.querySelectorAll('.p-about__detail');
-  const services = document.querySelectorAll('.p-service__box');
-  const voices = document.querySelectorAll('.p-voice__area');
+  const animation = document.querySelectorAll('.js-animation');
 
   window.addEventListener('scroll', () => {
-    fadeAnime(about);
-    fadeAnime(services);
-    fadeAnime(voices);
+    fadeAnime(animation);
     if (window.innerWidth > 768) {
       randomIn();
     } else {
       slideIn();
+    }
+  });
+}
+
+const windowHeight = window.innerHeight;
+const livers = document.getElementById('js-characters');
+const characters = Array.from(livers.children);
+const range = 1.4;
+
+function fadeAnime(targets) {
+  targets.forEach(target => {
+    const targetHeight = target.getBoundingClientRect().top * range;
+    if (windowHeight > targetHeight) {
+      if (window.innerWidth > 768) {
+        target.classList.add('active');
+      } else {
+        target.classList.add('active_here');
+      }
+    }
+  })
+}
+
+function randomIn() {
+  let targetHeight = livers.getBoundingClientRect().top * range;
+  if (windowHeight > targetHeight) {
+    let value = 0;
+    while(characters.length > 0) {
+      let randomNum = Math.floor(Math.random() * characters.length);
+      characters[randomNum].classList.add('active');
+      characters[randomNum].style.animationDelay = value + "s";
+      value += 0.1;
+      characters.splice(randomNum, 1);
+    }
+  }
+}
+
+function slideIn() {
+  characters.forEach(target => {
+    let targetHeight = target.getBoundingClientRect().top * range;
+    if (windowHeight >= targetHeight) {
+        target.classList.add('active');
     }
   });
 }

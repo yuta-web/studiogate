@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="<?php language_attributes(); ?>">
 <head>
 	<meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="スタジオゲートは配信を始める前から徹底したサポートによって不安なくライバーが配信を始められる環境を作っています。">
-  <meta property="og:image" content="<?php echo get_template_directory_uri() ?>/asset/img/ogp.jpg">
-	<link rel="icon" href="<?php echo get_template_directory_uri() ?>/asset/img/ogp.jpg">
+  <meta property="og:image" content="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/ogp.jpg">
+	<link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/ogp.jpg">
   <meta property="og:title" content="ライブ配信ならスタジオゲート">
   <meta property="og:site_name" content="スタジオゲート - 公式ホームページ">
   <meta property="og:description" content="スタジオゲートは配信を始める前から徹底したサポートによって不安なくライバーが配信を始められる環境を作っています。">
@@ -16,21 +16,14 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-  <link
-	rel="stylesheet"
-	type="text/css"
-	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-  />
-  <link
-	rel="stylesheet"
-	type="text/css"
-	href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
-  />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
 	<?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 	<header class="l-header u-pc">
-		<h1><a href="/"><img src="<?php echo get_template_directory_uri() ?>/asset/img/logo_01.png" width="399" height="44" alt="STUDIO GATE" class="p-header__logo"></a></h1>
+		<h1><a href="/"><img src="<?php echo esc_url(get_template_directory_uri());?>/asset/img/logo_01.png" width="399" height="44" alt="STUDIO GATE" class="p-header__logo"></a></h1>
 		<nav class="p-header__nav">
 			<ul class="p-header__list">
 				<li class="p-header__item"><a href="#livers">Livers</a></li>
@@ -51,8 +44,8 @@
 		<div class="line under_line"></div>
 	</div>
 	<div class="mask" id="mask"></div>
-	<header class="u-sp active" id="header">
-		<nav>
+	<div class="nav_menu u-sp active" id="header">
+		<nav class="active" id="header">
 			<ul>
 				<li><a href="#livers">Livers</a></li>
 				<li><a href="#about">About</a></li>
@@ -63,7 +56,7 @@
 				<li><a href="#company">Company</a></li>
 			</ul>
 		</nav>
-	</header>
+	</div>
 
 	<main class="l-content">
 		<div class="p-kv">
@@ -76,15 +69,17 @@
 					if($the_query->have_posts()):
 				?>
 				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
-				<div><img src="<?php echo CFS()->get('kv_left_img') ?>" alt="<?php the_title(); ?>" /></div>
+				<div><img src="<?php echo esc_url(CFS()->get('kv_left_img')); ?>" alt="<?php the_title(); ?>" width="450" height="450"></div>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 				<?php else: ?>
 				<?php endif; ?>
 			</div>
 			<div class="center">
-				<img src="<?php echo get_template_directory_uri() ?>/asset/img/kv_pc.png" width="2000" height="1160" alt="業界サポートNo. 1 ライブ配信するなら スタジオゲート 映像、舞台、広告、CM案件ももらえる！" class="u-pc">
-				<img src="<?php echo get_template_directory_uri() ?>/asset/img/kv_sp.png" width="1100" height="691" alt="業界サポートNo. 1 ライブ配信するなら スタジオゲート 映像、舞台、広告、CM案件ももらえる！" class="u-sp">
+				<picture>
+						<source srcset="<?php echo esc_url(get_template_directory_uri());?>/asset/img/kv_pc.png" media="(min-width: 600px)" class="p-kv__img">
+						<img src="<?php echo esc_url(get_template_directory_uri());?>/asset/img/kv_sp.png" width="768" height="482" alt="業界サポートNo. 1 ライブ配信するなら スタジオゲート 映像、舞台、広告、CM案件ももらえる！" class="p-kv__img">
+				</picture>
 				<p class="p-kv__text">
 					業界サポートNo. 1<br>
 					ライブ配信するなら<br>
@@ -101,7 +96,7 @@
 					if($the_query->have_posts()):
 				?>
 				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
-				<div><img src="<?php echo CFS()->get('kv_right_img') ?>" alt="<?php the_title(); ?>" /></div>
+				<div><img src="<?php echo esc_url(CFS()->get('kv_right_img')); ?>" alt="<?php the_title(); ?>" width="450" height="450"></div>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 				<?php else: ?>
@@ -111,7 +106,7 @@
 
 		<section id="livers" class="l-content__section">
 			<h2 class="c-heading">Livers</h2>
-			<div class="l-content__bg--black" id="characters">
+			<div class="l-content__bg--black" id="js-characters">
 				<?php
 					$args = array(
 						'post_type' => 'livers'
@@ -121,7 +116,7 @@
 				?>
 				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
 				<div class="c-card__4col">
-					<img src="<?php echo CFS()->get('livers_image') ?>" alt="<?php the_title(); ?>">
+					<img src="<?php echo esc_url(CFS()->get('livers_image')); ?>" alt="<?php the_title();?>" width="450" height="450">
 					<p class="c-card__category"><?php echo CFS()->get('livers_work') ?></p>
 					<p class="c-card__name"><?php echo CFS()->get('livers_name') ?></p>
 				</div>
@@ -145,15 +140,15 @@
 					if($the_query->have_posts()):
 				?>
 				<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
-						<section class="p-about__detail">
+						<section class="p-about__detail js-animation">
 							<div class="p-about__textarea">
 								<div>
-									<h3 class="p-about__ttl"><?php echo CFS()->get('about_title') ?></h3>
+									<h3 class="p-about__ttl"><?php CFS()->get('about_title') ?></h3>
 									<p class="p-about__txt"><?php echo CFS()->get('about_text') ?></p>
 								</div>
 							</div>
 							<div class="p-about__img">
-								<img src="<?php echo CFS()->get('about_img') ?>" alt="<?php the_title(); ?>">
+								<img src="<?php echo esc_url(CFS()->get('about_img')); ?>" alt="<?php the_title(); ?>" width="500" height="700">
 							</div>
 						</section>
 						<?php endwhile; ?>
@@ -167,16 +162,16 @@
 
 		<section id="sponser" class="l-content__section">
 			<h2 class="c-heading">Sponser</h2>
-			<img src="<?php echo get_template_directory_uri() ?>/asset/img/img_03.png" width="1999" height="1007" alt="Beauty Japan スタジオゲートは”beauty Japan”の公式スポンサーです。" class="p-sponser__img">
+			<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/img_03.png" width="1999" height="1007" alt="Beauty Japan スタジオゲートは”beauty Japan”の公式スポンサーです。" class="p-sponser__img">
 		</section>
 
 		<section id="service" class="l-content__section">
 			<h2 class="c-heading">Service</h2>
 			<div class="p-service__area">
-				<div class="p-service__box">
+				<div class="p-service__box js-animation">
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_01.png" width="157" height="157" alt="配信以外にCM案件も取れる!!" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_01.png" width="157" height="157" alt="配信以外にCM案件も取れる!!" class="p-service__icon">
 							<h3 class="p-service__ttl">配信以外に<br>CM案件も取れる!!</h3>
 						</div>
 						<p class="p-service__txt">映画やCM案件を持っている<br>
@@ -185,7 +180,7 @@
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_02.png" width="157" height="157" alt="ライブ中もサポート" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_02.png" width="157" height="157" alt="ライブ中もサポート" class="p-service__icon">
 							<h3 class="p-service__ttl">ライブ中もサポート</h3>
 						</div>
 						<p class="p-service__txt">ライブ中にもコメントやギフトで<br>
@@ -194,17 +189,17 @@
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_03.png" width="157" height="157" alt="法律税務相談サポート" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_03.png" width="157" height="157" alt="法律税務相談サポート" class="p-service__icon">
 							<h3 class="p-service__ttl">法律税務相談<br>サポート</h3>
 						</div>
 						<p class="p-service__txt">弊社顧問弁護士や税理士による<br>
 							相談サポート付きです。</p>
 					</section>
 				</div>
-				<div class="p-service__box">
+				<div class="p-service__box js-animation">
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_04.png" width="157" height="157" alt="配信以外にCM案件も取れる!!" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_04.png" width="157" height="157" alt="配信以外にCM案件も取れる!!" class="p-service__icon">
 							<h3 class="p-service__ttl">充実したサポート</h3>
 						</div>
 						<p class="p-service__txt">月に数回オンラインや対面で<br>
@@ -213,7 +208,7 @@
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_05.png" width="157" height="157" alt="ライブ中もサポート" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_05.png" width="157" height="157" alt="ライブ中もサポート" class="p-service__icon">
 							<h3 class="p-service__ttl">専属マネージャー付き</h3>
 						</div>
 						<p class="p-service__txt">配信に専念できるように<br>
@@ -221,17 +216,17 @@
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_06.png" width="157" height="157" alt="法律税務相談サポート" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_06.png" width="157" height="157" alt="法律税務相談サポート" class="p-service__icon">
 							<h3 class="p-service__ttl">スタジオ<br>無料貸し出し</h3>
 						</div>
 						<p class="p-service__txt">スタジオも無料で貸し出します。<br>
 						実家に住んでる方もやりやすい !<br>しかも場所は渋谷のど真ん中 !</p>
 					</section>
 				</div>
-				<div class="p-service__box">
+				<div class="p-service__box js-animation">
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_07.png" width="157" height="157" alt="無料講義" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_07.png" width="157" height="157" alt="無料講義" class="p-service__icon">
 							<h3 class="p-service__ttl">無料講義</h3>
 						</div>
 						<p class="p-service__txt">実際のトップライバーが<br>
@@ -240,7 +235,7 @@
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_08.png" width="157" height="157" alt="ライバー同士の交流会" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_08.png" width="157" height="157" alt="ライバー同士の交流会" class="p-service__icon">
 							<h3 class="p-service__ttl">ライバー同士の交流会</h3>
 						</div>
 						<p class="p-service__txt">ライバー同士の交流会も定期的に<br>
@@ -249,7 +244,7 @@
 					</section>
 					<section class="p-service__detail">
 						<div class="p-service__ttl__area">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/icon_09.png" width="157" height="157" alt="カウンセリング" class="p-service__icon">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/icon_09.png" width="157" height="157" alt="カウンセリング" class="p-service__icon">
 							<h3 class="p-service__ttl">カウンセリング</h3>
 						</div>
 						<p class="p-service__txt">何を話して良いかわからないなどの<br>
@@ -272,9 +267,9 @@
 						if($the_query->have_posts()):
 					?>
 					<?php while ($the_query->have_posts()): $the_query->the_post(); ?>
-					<div class="p-voice__area">
+					<div class="p-voice__area js-animation">
 						<div class="p-voice__img__wrap">
-							<img src="<?php echo CFS()->get('voice_img') ?>" alt="<?php the_title(); ?>" class="p-voice__img">
+							<img src="<?php echo esc_url(CFS()->get('voice_img')); ?>" alt="<?php the_title(); ?>" width="500" height="700" class="p-voice__img">
 						</div>
 						<div class="p-voice__detail">
 							<div>
@@ -306,9 +301,9 @@
 					<h3 class="p-contact__liver__ttl">For Liver</h3>
 					<p class="c-text">ライバーのお仕事に興味がある人はこちらへ</p>
 					<div class="p-contact__btn__area">
-						<img src="<?php echo get_template_directory_uri() ?>/asset/img/arrow_01.png" width="497" height="301" alt="矢印" class="p-contact__arrow">
+						<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/arrow_01.png" width="497" height="301" alt="矢印" class="p-contact__arrow">
 						<a href="https://lin.ee/J2TDM7S" target="_blank" class="p-contact__liver__link">
-							<img src="<?php echo get_template_directory_uri() ?>/asset/img/btn_01.png" width="320" height="455" alt="LINEで応募する" class="p-contact__btn">
+							<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/btn_01.png" width="320" height="455" alt="LINEで応募する" class="p-contact__btn">
 						</a>
 					</div>
 				</section>
@@ -319,7 +314,7 @@
 			<h2 class="c-heading">Company</h2>
 			<div class="p-company__content">
 				<div class="p-company__detail">
-					<img src="<?php echo get_template_directory_uri() ?>/asset/img/logo_01.png" width="399" height="44" alt="STUDIO GATE" class="p-company__logo">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/logo_01.png" width="399" height="44" alt="STUDIO GATE" class="p-company__logo">
 					<p class="p-company__ttl">会社概要</p>
 					<p class="c-text">合同会社スタジオゲート</p>
 					<?php
