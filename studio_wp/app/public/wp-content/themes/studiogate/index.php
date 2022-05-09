@@ -45,7 +45,7 @@
 	</div>
 	<div class="mask" id="mask"></div>
 	<div class="nav_menu u-sp active" id="header">
-		<nav class="active" id="header">
+		<nav class="active">
 			<ul>
 				<li><a href="#livers">Livers</a></li>
 				<li><a href="#about">About</a></li>
@@ -162,7 +162,9 @@
 
 		<section id="sponser" class="l-content__section">
 			<h2 class="c-heading">Sponser</h2>
-			<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/img_03.png" width="1999" height="1007" alt="Beauty Japan スタジオゲートは”beauty Japan”の公式スポンサーです。" class="p-sponser__img">
+			<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/img_03.jpg" width="1168" height="643" alt="Beauty Japan スタジオゲートは”beauty Japan”の公式スポンサーです。" class="p-sponser__img">
+			<p class="p-sponser__txt">スタジオゲートは<br>“beauty Japan”の公式スポンサーです。</p>
+			<img src="<?php echo esc_url(get_template_directory_uri()); ?>/asset/img/img_04.png" width="249" height="140" alt="Beauty Japan" class="p-sponser__icon">
 		</section>
 
 		<section id="service" class="l-content__section">
